@@ -57,14 +57,13 @@ public class LogicAnnotationProcessor extends AbstractProcessor{
         Set<? extends Element> routeElements = roundEnvironment.getElementsAnnotatedWith(Logic.class);
 
         if (routeElements == null || routeElements.isEmpty()) {
+            DocManager.getInstance().logicsDone();
+            DocManager.getInstance().build();
             return false;
         }
 
         TypeSpec.Builder typeBuilder = TypeSpec.classBuilder(moduleName + CLASS)
                 .addModifiers(Modifier.PUBLIC, Modifier.FINAL);
-
-        TypeSpec.Builder typeUrlBuilder = TypeSpec.classBuilder("Actions")
-                .addModifiers(Modifier.PUBLIC, Modifier.STATIC, Modifier.FINAL);
 
         MethodSpec registeMethod = null;
         MethodSpec.Builder builder = MethodSpec.methodBuilder("registe")
@@ -82,18 +81,14 @@ public class LogicAnnotationProcessor extends AbstractProcessor{
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-            FieldSpec.Builder fieldBuilder = FieldSpec.builder(String.class,
-                    action.replace("/" ,"_"), Modifier.PUBLIC, Modifier.STATIC);
-
-            typeUrlBuilder.addField(fieldBuilder.initializer("$S", action).build());
             DocManager.getInstance().addLogicDoc(logic);
         }
+
+        DocManager.getInstance().logicsDone();
 
         registeMethod = builder.build();
 
         TypeSpec logicMap = typeBuilder
-                .addType(typeUrlBuilder.build())
                 .addMethod(registeMethod)
                 .build();
 
