@@ -15,35 +15,69 @@
         android:src="@drawable/ic_launcher_background"
         android:tag="@{model->infoEdit.headImage;click->clickHeadImage}" />
 
-    <TextView
-        android:id="@+id/user_infoEdit_nickName"
+    <LinearLayout
+        android:id="@+id/user_infoEdit_nickName_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="8dp"
         android:layout_toLeftOf="@id/user_infoEdit_Head_portrait"
-        android:ellipsize="end"
-        android:gravity="center_vertical|left"
-        android:maxLines="1"
-        android:tag="@{model->infoEdit.nickName}"
-        android:textColor="@color/text_black"
-        android:textSize="@dimen/text_l"
-        tools:text="昵称：刘记" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/user_infoEdit_nickName_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center_vertical|left"
+            android:maxLines="1"
+            android:tag="@{model->infoEdit.nickName}"
+            android:text="@string/nick_name"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_m"
+            tools:text="昵称:" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/user_infoEdit_nickName_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2dp"
+                android:background="@drawable/user_edit_background_select" />
+
+            <TextView
+                android:id="@+id/user_infoEdit_nickName_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:gravity="center_vertical|left"
+                android:text=""
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_m"
+                tools:text="刘记" />
+        </FrameLayout>
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/user_infoEdit_sexual_orientation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/user_infoEdit_nickName"
+        android:layout_below="@id/user_infoEdit_nickName_container"
         android:layout_marginRight="8dp"
         android:layout_marginTop="30dp"
         android:layout_toLeftOf="@id/user_infoEdit_Head_portrait"
         android:gravity="center_vertical|left"
         android:tag="@{model->infoEdit.sexualOrientation}"
+        android:text="@string/sexual_orientation"
         android:textColor="@color/text_black"
-        android:textSize="@dimen/text_l"
+        android:textSize="@dimen/text_m"
         tools:text="性取向：刘记" />
 
     <TextView
@@ -57,8 +91,9 @@
         android:layout_toLeftOf="@id/user_infoEdit_Head_portrait"
         android:gravity="center_vertical|left"
         android:tag="@{model->infoEdit.age}"
+        android:text="@string/age"
         android:textColor="@color/text_black"
-        android:textSize="@dimen/text_l"
+        android:textSize="@dimen/text_m"
         tools:text="年龄：100" />
 
     <TextView
@@ -72,8 +107,9 @@
         android:layout_toLeftOf="@id/user_infoEdit_Head_portrait"
         android:gravity="center_vertical|left"
         android:tag="@{model->infoEdit.hometown}"
+        android:text="@string/home_town"
         android:textColor="@color/text_black"
-        android:textSize="@dimen/text_l"
+        android:textSize="@dimen/text_m"
         tools:text="家乡：北京市海淀区望京某个小角落"
 
         />

@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.campus.android_bind.bean.NgGo;
@@ -23,6 +25,7 @@ import com.campus.william.router.logic.ActivityProvider;
 import com.campus.william.router.logic.RouterFactory;
 import com.campus.william.router.ui.IFragment;
 import com.campus.william.user.R;
+import com.campus.william.user.internal.ui.widget.BaseDialog;
 import com.campus.william.user.internal.ui.widget.TimeTextView;
 
 import java.util.HashMap;
@@ -81,8 +84,8 @@ public class LoginFragment extends IFragment {
      * @param view 是为了区分可能有多个View绑定了这个方法，通过View来区分
      **/
     public void sendVerificationCode(View view) {
-        if(mSendVerificationCodeTxt == null) {
-            if(view instanceof TimeTextView) {
+        if (mSendVerificationCodeTxt == null) {
+            if (view instanceof TimeTextView) {
                 mSendVerificationCodeTxt = (TimeTextView) view;
             }
         }
@@ -100,18 +103,16 @@ public class LoginFragment extends IFragment {
                     public void done(IResponse response) {
                         super.done(response);
                         //验证码返回
-                        if(response == null || response.getException() != null) {
-                            Log.d(TAG,"请求异常");
+                        if (response == null || response.getException() != null) {
+                            Log.d(TAG, "请求异常");
                         } else {
-                            Log.d(TAG,"验证码发送成功");
-                            if(mSendVerificationCodeTxt != null) {
+                            Log.d(TAG, "验证码发送成功");
+                            if (mSendVerificationCodeTxt != null) {
                                 mSendVerificationCodeTxt.setTime(60);
                                 mSendVerificationCodeTxt.setTimeBackgroundRes(R.drawable.user_btn_black);
                                 mSendVerificationCodeTxt.start();
                             }
                         }
-
-
                     }
                 });
     }
@@ -139,14 +140,14 @@ public class LoginFragment extends IFragment {
                     @Override
                     public void done(IResponse response) {
                         super.done(response);
-                        if(response.getException() == null){
+                        if (response.getException() == null) {
                             routerProvider.release();
                             getActivity().finish();
                             ActivityProvider activityProvider = RouterFactory.getInstance()
                                     .obtainAcitivtyProvider();
                             activityProvider.setState("MAIN")
                                     .navigate(getContext());
-                        }else{
+                        } else {
                             showToasts(response.getException().getMessage());
                         }
                     }
@@ -157,7 +158,7 @@ public class LoginFragment extends IFragment {
      * 逛一逛点击回调
      **/
     public void lookUp(View view) {
-      //todo 这里后续对接
+        //todo 这里后续对接
         showToasts("暂无该功能");
     }
 
@@ -186,5 +187,7 @@ public class LoginFragment extends IFragment {
         toast.setText((msg == null ? "" : msg));
         toast.show();
     }
+
+
 
 }

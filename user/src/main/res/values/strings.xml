@@ -15,9 +15,9 @@
     <string name="send_verification_code">发送验证码</string>
     <string name="import_input_verification_code">请输入验证码</string>
     <string name="take_a_stroll">逛一逛</string>
-    <string name="love_declaration">快来编辑下爱的宣言吧/n
-        /n
-        /n
-        /n
-    &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;100字</string>
+    <string name="love_declaration">快来编辑下爱的宣言吧</string>
+    <string name="nick_name">昵称：</string>
+    <string name="sexual_orientation">性取向：</string>
+    <string name="age">年龄：</string>
+    <string name="home_town">家乡：</string>
 </resources>
