@@ -23,6 +23,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="8dp"
         android:layout_toLeftOf="@id/user_infoEdit_Head_portrait"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
@@ -40,22 +41,25 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
             <EditText
                 android:id="@+id/user_infoEdit_nickName_editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="2dp"
-                android:background="@drawable/user_edit_background_select" />
+                android:background="@color/transparent"
+                android:gravity="center_vertical|left"
+                android:maxLength="20"
+                android:maxLines="2"
+                android:padding="2dp" />
 
             <TextView
                 android:id="@+id/user_infoEdit_nickName_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="4dp"
+                android:background="@color/white_bkg"
                 android:gravity="center_vertical|left"
-                android:text=""
+                android:text="1"
                 android:textColor="@color/text_black"
                 android:textSize="@dimen/text_m"
                 tools:text="刘记" />
@@ -63,54 +67,83 @@
 
     </LinearLayout>
 
-
-    <TextView
-        android:id="@+id/user_infoEdit_sexual_orientation"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/user_infoEdit_sexual_orientation_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/user_infoEdit_nickName_container"
         android:layout_marginRight="8dp"
         android:layout_marginTop="30dp"
         android:layout_toLeftOf="@id/user_infoEdit_Head_portrait"
-        android:gravity="center_vertical|left"
-        android:tag="@{model->infoEdit.sexualOrientation}"
-        android:text="@string/sexual_orientation"
-        android:textColor="@color/text_black"
-        android:textSize="@dimen/text_m"
-        tools:text="性取向：刘记" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/user_infoEdit_age"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/user_infoEdit_sexual_orientation_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|left"
+            android:tag="@{model->infoEdit.sexualOrientation}"
+            android:text="@string/sexual_orientation"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_m" />
+
+        <TextView
+            android:id="@+id/user_infoEdit_sexual_orientation_"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_m"
+            tools:text="刘记" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/user_infoEdit_age_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/user_infoEdit_sexual_orientation"
+        android:layout_below="@id/user_infoEdit_sexual_orientation_container"
         android:layout_marginRight="8dp"
         android:layout_marginTop="30dp"
-        android:layout_toLeftOf="@id/user_infoEdit_Head_portrait"
-        android:gravity="center_vertical|left"
-        android:tag="@{model->infoEdit.age}"
-        android:text="@string/age"
-        android:textColor="@color/text_black"
-        android:textSize="@dimen/text_m"
-        tools:text="年龄：100" />
+        android:layout_toLeftOf="@id/user_infoEdit_Head_portrait">
 
-    <TextView
-        android:id="@+id/user_infoEdit_hometown"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/user_infoEdit_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|left"
+            android:tag="@{model->infoEdit.age}"
+            android:text="@string/age"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_m"
+            tools:text="年龄：100" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/user_infoEdit_age"
+        android:layout_below="@id/user_infoEdit_age_container"
         android:layout_marginRight="8dp"
         android:layout_marginTop="30dp"
-        android:layout_toLeftOf="@id/user_infoEdit_Head_portrait"
-        android:gravity="center_vertical|left"
-        android:tag="@{model->infoEdit.hometown}"
-        android:text="@string/home_town"
-        android:textColor="@color/text_black"
-        android:textSize="@dimen/text_m"
-        tools:text="家乡：北京市海淀区望京某个小角落"
+        android:layout_toLeftOf="@id/user_infoEdit_Head_portrait">
 
-        />
+        <TextView
+            android:id="@+id/user_infoEdit_hometown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|left"
+            android:tag="@{model->infoEdit.hometown}"
+            android:text="@string/home_town"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/text_m"
+            tools:text="家乡：北京市海淀区望京某个小角落"
+
+            />
+
+    </LinearLayout>
+
 </RelativeLayout>

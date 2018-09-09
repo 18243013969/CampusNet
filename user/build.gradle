@@ -15,7 +15,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ moduleName : "User", "document_path" : "/Users/william/Desktop/CampusNetDocument/"]
+                arguments = [ moduleName : "User", "document_path" : "I:\\Android\\studioproject\\document"]
             }
         }
     }

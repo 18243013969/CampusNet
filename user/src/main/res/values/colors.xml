@@ -34,4 +34,6 @@
     <color name="color_f5455e">#f5455e</color>
     <color name="video_call_peer_close_cameral_text_shadow">#484848</color>
     <color name="video_call_peer_close_cameral_text_color">#f1f1f1</color>
+
+    <color name="transparent">#00ffffff</color>
 </resources>

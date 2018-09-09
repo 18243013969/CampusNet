@@ -62,12 +62,12 @@ public class LoginActivity extends AppCompatActivity {
                             } catch (IOException e) {
                                 e.printStackTrace();
                                 Toast.makeText(getApplicationContext(), "登录过期", Toast.LENGTH_SHORT).show();
-                                mRouterProvider.setState("LOGIN").navigate();
+                                mRouterProvider.setState("EditUserInfo").navigate();
                             }
 
                         }else{
                             Toast.makeText(getApplicationContext(), "登录过期", Toast.LENGTH_SHORT).show();
-                            mRouterProvider.setState("LOGIN").navigate();
+                            mRouterProvider.setState("EditUserInfo").navigate();
                         }
                     }
                 });

@@ -8,6 +8,10 @@ import com.campus.android_bind.util.ImageLoader;
 import com.campus.campusnet.model.User;
 import com.campus.event_filter.filter.IServelet;
 import com.campus.william.user.internal.storage.StorageFactory;
+import com.event_filter.logics.StudentLogicMap;
+import com.event_filter.logics.UserLogicMap;
+import com.router.urls.StudentRouterMap;
+import com.router.urls.UserRouterMap;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
@@ -51,6 +55,10 @@ public class App extends Application {
                 }
             }
         });
+        UserLogicMap.registe();
+        UserRouterMap.registe();
+        StudentLogicMap.registe();
+        StudentRouterMap.registe();
     }
 
     public void setUser(User user){
