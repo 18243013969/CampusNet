@@ -76,7 +76,7 @@
                 android:textColorHint="@color/text_gray"
                 android:textSize="@dimen/text_s" />
 
-            <TextView
+            <com.campus.william.user.internal.ui.widget.TimeTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/user_btn_info"
